@@ -1,13 +1,18 @@
-# Ubuntu 16.04 Deep Learning Environment Setup
-### GTX 1080 / RTX 2080 CUDA 一站式驱动安装[[中文文档]](https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup/blob/master/README_CN.md)更新
+# Ubuntu 16.04 / 18.04 Deep Learning Environment Setup
+
+* #### Ubuntu 18.04 - GTX 1080 / RTX 2080 CUDA 和 NVIDIA 驱动同时安装 [[中文文档]](https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup/blob/master/Ubuntu_18.04.md)
+
+* #### Ubuntu 16.04 - GTX 1080 / RTX 2080 CUDA 和 NVIDIA 驱动同时安装 [[中文文档]](https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup/blob/master/Ubuntu_16.04_CN.md)
+
+* #### Ubuntu 16.04 - GTX 1080 / RTX 2080 CUDA 和 NVIDIA 驱动单独安装 [[中文文档]](https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup/blob/master/README.md)
+
 *tensorflow-gpu & Nvidia GPU & Cuda & Cudnn 环境配置*
-
-
 
 <div align="left">
   <img src="https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup/blob/master/img/cuda_gpu_version.png" width="600">
 
 ***
+## Ubuntu 16.04 配置版本
 * #### Ubuntu Kernel Version 4.10.09
 * #### GeForce GTX 1080 Ti
 * #### NVIDIA 390.87
@@ -22,17 +27,13 @@
 * #### cuda 10.0
 * #### cuDNN v7.5.0
 * #### tensorflow-gpu 1.13.1
+* #### python 3.5
 ***
 
-## __0. 查看可安装驱动列表 - Update and Upgrade__
-	
+## __0. 更新软件源 & 确认配置版本 - Update and Upgrade__
+    
     $ sudo apt-get update
     $ sudo apt-get upgrade
-    $ sudo apt-cache search nvidia*
-
-<div align="left">
-  <img src="https://github.com/chenyeheng/Ubuntu_16.04_Deep_Learning_Environment_Setup/blob/master/img/driver.png" width="600">
-</div>
 
 #### (Kernel Version 4.10.09)
 #### Install Version: NVIDIA-Linux-x86_64-390.87.run
@@ -292,6 +293,19 @@
     $ sudo rm -rf /usr/local/cuda/include/cudnn.h
     $ sudo rm -rf /usr/local/cuda/lib64/libcudnn
     
+## 国内 pip 速度问题换源 （阿里云pip源）
+
+	cd ~
+	mkdir .pip
+	sudo vim .pip/pip.conf
+
+写入：
+	
+	[global]
+	index-url = http://mirrors.aliyun.com/pypi/simple/
+	[install]
+	trusted-host = mirrors.aliyun.com
+
 
 <div align="left">	
   <img src="https://github.com/yehengchen/Ubuntu-16.04-Deep-Learning-Environment-Setup/blob/master/img/cuda_9.0_10.0_kernel_version.png" width="630">
